@@ -110,20 +110,25 @@ def backFunction():
     box.activate(nextS)
     box.selection_set(nextS, last=None)
 
+def loopFunction():
+    pygame.mixer.music.play(loops=-1)
+
 controls = Frame(root)
 controls.pack()
 
-backButton = Button(controls, text='back', background='darkgreen', command=backFunction)
+backButton = Button(controls, text='back', background='purple', command=backFunction)
 forwardButton = Button(controls, text='forward', background='darkgreen', command=forwardFunction)
 playButton = Button(controls, text='play', background='darkblue', command=playFunction)
 pauseButton = Button(controls, text='pause', background='yellow', command=lambda: pauseFunction(paused))
-stopButton = Button(controls, text='stop', background='yellow', command=stopFunction)
+stopButton = Button(controls, text='stop', background='pink', command=stopFunction)
+loopButton = Button(controls, text='loop', background='red', command=loopFunction)
 
 backButton.grid(row=0, column=0, padx=15)
 forwardButton.grid(row=0, column=1, padx=15)
 playButton.grid(row=0, column=2, padx=15)
 pauseButton.grid(row=0, column=3, padx=15)
 stopButton.grid(row=0, column=4, padx=15)
+loopButton.grid(row=0, column=5, padx=15)
 
 # Menu shitz lol
 
