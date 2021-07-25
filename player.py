@@ -51,6 +51,10 @@ def playerWindow():
     root.configure(background='darkred')
     root.resizable(False, False)
 
+    background_image = PhotoImage("D:\FruityProjects\FruityPlayer\images\\fruity2.png")
+    background_label = Label(root, image=background_image)
+    background_label.place(x=0, y=0, relwidth=500, relheight=300)
+
     # back = PhotoImage(file="D:\FruityProjects\FruityPlayer\images\\fruity2.png")
 
     # backDisplay = Canvas(root, width=500, height=300)
@@ -159,8 +163,8 @@ def playerWindow():
 
     controls.pack()
 
-    backButton = Button(controls, text='back', background='purple', command=backFunction)
-    forwardButton = Button(controls, text='forward', background='darkgreen', command=forwardFunction)
+    backButton = Button(controls, text='previous', background='purple', command=backFunction)
+    forwardButton = Button(controls, text='next', background='darkgreen', command=forwardFunction)
     playButton = Button(controls, text='play', background='darkblue', command=playFunction)
     pauseButton = Button(controls, text='pause', background='yellow', command=lambda: pauseFunction(paused))
     stopButton = Button(controls, text='stop', background='pink', command=stopFunction)
@@ -230,8 +234,6 @@ def playerWindow():
     status = Label(root, text='', bd=1, relief=GROOVE, anchor=E)
     status.pack(fill=X, side=BOTTOM, ipady=2)
 
-    confirm()
-
 # Other Function Stuff lool
 
 def confirm():
@@ -239,5 +241,6 @@ def confirm():
     pygame.mixer.music.load(confirmation)
     pygame.mixer.music.play()
 
+splash.after(3000, confirm)
 splash.after(3000, playerWindow)
 mainloop()
